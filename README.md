@@ -22,10 +22,39 @@ Dependencies are automatically installed when using [bower](https://bower.io/).
 * Font Awesome
 
 ##Usage
-//TODO
+**HTML**
+
+Add an empty div to your code with a specified id. Example:
+
+```
+<div id="tab_bar"></div>
+
+```
+
+**Javascript**
+
+Add your own tabbar-code to your javascript. Initialize the tabbar object and select the HTML-object you added. Add tabs and then finally render.
+
+```
+//Initialize the tabbar
+var tabbar = new AppTabBar.Tabbar('tab_bar');
+tabbar.init();
+
+//Add tabs
+tabbar.addTab('Home', 'fa-home');
+tabbar.addTab('Pages', 'fa-home');
+	
+//Render the tabbar.
+tabbar.render();
+
+```
+
+
 
 ##Contribute
 //TODO
+
+Please read the wiki in order to contribute to the project.
 
 ##License 
 MIT-license. See *LICENSE*-file.

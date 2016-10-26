@@ -39,6 +39,7 @@ AppTabBar.Tabbar = function(nodeId) {
 	//--- CALCULATION METHODS ---
 	this.calculation = {};
 	this.calculation.id = 0;
+	this.calculation.columnsCalculated = null;
 
 	this.calculation.uniqueId = function() {
 		self.calculation.id++;
@@ -54,8 +55,7 @@ AppTabBar.Tabbar = function(nodeId) {
 			throw 'calculateColumns invalid_columns';
 		}
 
-		return columns;
-
+		self.calculation.columnsCalculated = columns;
 		//	2,3,4,6,12
 
 	}
@@ -64,22 +64,17 @@ AppTabBar.Tabbar = function(nodeId) {
 	//--- TABS FUNCTIONS ---
 	this.addTab = function(name, icon){
 
-
 		var tabId = self.calculation.uniqueId();
 
 		//Create object.
 		var obj = '<div data-tab-bar-id="'  + tabId + '">hello</div>';
 		obj = $.parseHTML(obj);
 
-		var tab = new AppTabBar.Tab(tabId, obj, self);
+		var tab = new AppTabBar.Tab(tabId, obj, name, icon, self);
 
 		self.tabs.tabs_objects.push(tab);
 
-
-
-		// self.tabs.tabs_objects.push()
-
-		// self.obj.html(obj);
+		return tabId;
 
 	}
 
@@ -87,12 +82,33 @@ AppTabBar.Tabbar = function(nodeId) {
 
 	this.render = function() {
 
+		//PREPARE DATA
+		self.calculation.calculateColumns();
+
+		//RENDER
+
 		//Empty div
 		$(self.obj).html('');
 
 		//Generate container
-		$(self.obj).html('aaasjdjas');
+		$(self.obj).html('' +
+			'<div data-tab-bar-controller="container" class="navigationBarContainer container-fluid" style="display: block;">' +
+			'	<div data-tab-bar-controller="bar" class="navigationBar row">' +
+			'	</div>' +
+			'</div>'
+		);
 
+		//Load objects
+		var bar_obj = $(self.obj).find('div[data-tab-bar-controller="bar"]');
+
+		//Add tabs
+		for (var i = 0; i < self.tabs.tabs_objects.length; i++) {
+			var tab = self.tabs.tabs_objects[i];
+			var tabCode = tab.renderCode();
+			$(bar_obj).append(tabCode);
+		}
+
+		//end render
 	}
 
 	this.bind = function() {
@@ -106,12 +122,26 @@ AppTabBar.Tabbar = function(nodeId) {
 }
 
 
-AppTabBar.Tab = function(id, obj, tabbar) {
+AppTabBar.Tab = function(id, obj, name, icon, tabbar) {
 	var self = this;
 	this.tabbar = tabbar;
 
 	this.id = id;
 	this.obj = obj;
+	this.name = name;
+	this.icon = icon;
+
+	this.renderCode = function() {
+
+		var cols = self.tabbar.calculation.columnsCalculated;
+
+		return '' +
+			'<div class="navBtnCtn col-xs-' + cols + ' col-sm-' + cols + ' col-md-' + cols + ' col-lg-' + cols + '">' +
+			'	<button data-tab="' + self.id + '" type="button" class="navBtn btn btn-default">' +
+			'		<i class="fa ' + self.icon + '" style="display: block;"></i> ' + self.name +
+			'	</button>' +
+			'</div>';
+	}
 
 }
 
@@ -123,7 +153,8 @@ $(document).ready(function() {
 	tabbar.init();
 
 	//Add tabs
-	tabbar.addTab('hello', 'hello');
+	tabbar.addTab('Hjem', 'fa-home');
+	tabbar.addTab('Pages', 'fa-home');
 
 	//Render the tabbar.
 	tabbar.render();
