@@ -1,4 +1,4 @@
-![App-tab-bar](https://i.imgur.com/T1tXqMF.png)
+[Logo](http://i.imgur.com/uIwgFZj.png)
 
 #app-tab-bar
 An tab-bar system in HTML/JS for hybrid apps / web apps. Designed to work with Phonegap/Cordova. Created as a multi-platform-purpose system. 
