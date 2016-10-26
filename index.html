@@ -61,12 +61,35 @@
 <h2>
 <a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
 
-<p>//TODO</p>
+<p><strong>HTML</strong></p>
+
+<p>Add an empty div to your code with a specified id. Example:</p>
+
+<pre><code>&lt;div id="tab_bar"&gt;&lt;/div&gt;
+</code></pre>
+
+<p><strong>Javascript</strong></p>
+
+<p>Add your own tabbar-code to your javascript. Initialize the tabbar object and select the HTML-object you added. Add tabs and then finally render.</p>
+
+<pre><code>//Initialize the tabbar
+var tabbar = new AppTabBar.Tabbar('tab_bar');
+tabbar.init();
+
+//Add tabs
+tabbar.addTab('Home', 'fa-home');
+tabbar.addTab('Pages', 'fa-home');
+
+//Render the tabbar.
+tabbar.render();
+</code></pre>
 
 <h2>
 <a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribute</h2>
 
 <p>//TODO</p>
+
+<p>Please read the wiki in order to contribute to the project.</p>
 
 <h2>
 <a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
