@@ -19,11 +19,12 @@ div.navigationBar div.navBtnCtn button {
 	font-size: 16px;
 	border-radius: 0px;
 	outline: none;
-}
-
-div.navigationBar div.navBtnCtn button {
 	height: 60px;
 	border-left: 1px solid #000;
+}
+
+div.navigationBar div.navBtnCtn button:focus {
+	outline: 0 !important;
 }
 
 div.navigationBar div.navBtnCtn button:first-child {

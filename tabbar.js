@@ -13,7 +13,7 @@
 var AppTabBar = {};
 
 
-AppTabBar.Tabbar = function(nodeId) {
+AppTabBar.Tabbar = function(nodeId, options) {
 
 	//--- VARS ---
 
@@ -22,6 +22,8 @@ AppTabBar.Tabbar = function(nodeId) {
 	//Vars: objects main
 	this.obj_ID = nodeId;
 	this.obj = null; //DOM-object
+
+	this.options = options;
 
 	//Tabs
 	this.tabs = {
@@ -66,15 +68,45 @@ AppTabBar.Tabbar = function(nodeId) {
 
 		var tabId = self.calculation.uniqueId();
 
-		//Create object.
-		var obj = '<div data-tab-bar-id="'  + tabId + '">hello</div>';
-		obj = $.parseHTML(obj);
-
-		var tab = new AppTabBar.Tab(tabId, obj, name, icon, self);
+		//Create object
+		var tab = new AppTabBar.Tab(tabId, name, icon, self);
 
 		self.tabs.tabs_objects.push(tab);
 
 		return tabId;
+
+	}
+
+	this.removeTab = function(tabId) {
+
+		var foundTab = false;
+		var tabIndex = 0;
+		var tab = null;
+
+		//FIND ELEMENT
+
+		for (var i = 0; i < self.tabs.tabs_objects.length; i++) {
+			var tempTab = self.tabs.tabs_objects[i];
+			if (tempTab.id == tabId) {
+				tabIndex = i;
+				foundTab = true;
+				tab = tempTab;
+				break;
+			}
+
+			//end for-loop
+		}
+
+		//REMOVE ELEMENTS
+
+		//Remove DOM object
+		$(foundTab.obj).remove();
+
+		//Remove from array.
+		self.tabs.tabs_objects.splice(tabIndex, 1);
+
+		return true;
+
 
 	}
 
@@ -122,25 +154,35 @@ AppTabBar.Tabbar = function(nodeId) {
 }
 
 
-AppTabBar.Tab = function(id, obj, name, icon, tabbar) {
+AppTabBar.Tab = function(id, name, icon, tabbar) {
 	var self = this;
 	this.tabbar = tabbar;
 
 	this.id = id;
-	this.obj = obj;
 	this.name = name;
 	this.icon = icon;
+
+	this.obj = null;
 
 	this.renderCode = function() {
 
 		var cols = self.tabbar.calculation.columnsCalculated;
 
-		return '' +
+		var btn = '' +
 			'<div class="navBtnCtn col-xs-' + cols + ' col-sm-' + cols + ' col-md-' + cols + ' col-lg-' + cols + '">' +
 			'	<button data-tab="' + self.id + '" type="button" class="navBtn btn btn-default">' +
 			'		<i class="fa ' + self.icon + '" style="display: block;"></i> ' + self.name +
 			'	</button>' +
 			'</div>';
+
+		btn = $.parseHTML(btn);
+
+		//Apply eventual styles
+		if ('button_height' in self.tabbar.options) $(btn).find('button').css('height', self.tabbar.options.button_height);
+
+		self.obj = btn;
+		return btn;
+
 	}
 
 }
@@ -149,12 +191,15 @@ AppTabBar.Tab = function(id, obj, name, icon, tabbar) {
 $(document).ready(function() {
 
 	//Initialize the tabbar
-	var tabbar = new AppTabBar.Tabbar('tab_bar');
+	var tabbar = new AppTabBar.Tabbar('tab_bar', {
+		button_height: 60
+	});
+
 	tabbar.init();
 
 	//Add tabs
-	tabbar.addTab('Hjem', 'fa-home');
-	tabbar.addTab('Pages', 'fa-home');
+	var home = tabbar.addTab('Home', 'fa-home');
+	var pages = tabbar.addTab('Pages', 'fa-home');
 
 	//Render the tabbar.
 	tabbar.render();
