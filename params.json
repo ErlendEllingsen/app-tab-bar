@@ -1,0 +1,6 @@
+{
+  "name": "app-tab-bar",
+  "tagline": "An tab-bar system in HTML/JS for hybrid apps / web apps. ",
+  "body": "![App-tab-bar](https://i.imgur.com/CLUH1Ws.png)\r\n\r\n###Warning - WORK IN PROGRESS\r\napp-tab-bar is currently **work in progress** and is NOT stable/ready to use. Watch (and/or star 😀🌟) the repository to be notified of changes!\r\n\r\n#app-tab-bar\r\nA tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs in Bootstrap-style. Designed to work with Phonegap/Cordova. Created as a multi-platform-purpose system. \r\n\r\n##Installation \r\n###Bower (Recommended)\r\n//TODO\r\n\r\n###Direct\r\n1. Download `tabbar.js` and `tabbar.css` and reference them in your document.\r\n2. Make sure the *dependencies* are installed (see below).\r\n\r\n###Dependencies\r\nDependencies are automatically installed when using [bower](https://bower.io/). \r\n\r\n* Boostrap\r\n* jQuery\r\n* Font Awesome\r\n\r\n##Usage\r\n//TODO\r\n\r\n##Contribute\r\n//TODO\r\n\r\n##License \r\nMIT-license. See *LICENSE*-file.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
