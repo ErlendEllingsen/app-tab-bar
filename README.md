@@ -1,4 +1,4 @@
-![App-tab-bar](https://i.imgur.com/cEM5ZyS.png)
+![App-tab-bar](https://i.imgur.com/CLUH1Ws.png)
 
 ###Warning - WORK IN PROGRESS
 app-tab-bar is currently **work in progress** and is NOT stable/ready to use. Watch (and/or star 😀🌟) the repository to be notified of changes!
