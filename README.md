@@ -28,7 +28,6 @@ Add an empty div to your code with a specified id. Example:
 
 ```
 <div id="tab_bar"></div>
-
 ```
 
 **Javascript**
@@ -46,7 +45,6 @@ tabbar.addTab('Pages', 'fa-home');
 	
 //Render the tabbar.
 tabbar.render();
-
 ```
 
 
