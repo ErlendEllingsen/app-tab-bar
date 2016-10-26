@@ -1,0 +1,31 @@
+
+/*Navigation bar*/
+
+div.navigationBarContainer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 0;
+}
+
+div.navigationBar div.navBtnCtn {
+	text-align: center;
+	padding: 0px;
+}
+
+div.navigationBar div.navBtnCtn button {
+	width: 100%;
+	font-size: 16px;
+	border-radius: 0px;
+	outline: none;
+}
+
+div.navigationBar div.navBtnCtn button {
+	height: 60px;
+	border-left: 1px solid #000;
+}
+
+div.navigationBar div.navBtnCtn button:first-child {
+	border-left: 0px;
+}

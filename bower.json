@@ -1,0 +1,34 @@
+{
+  "name": "app-tab-bar",
+  "homepage": "https://github.com/ErlendEllingsen/app-tab-bar",
+  "authors": [
+    "Erlend Ellingsen <erlend.ame@gmail.com>"
+  ],
+  "description": "An tab-bar system in HTML/JS for hybrid apps / web apps.",
+  "main": "",
+  "keywords": [
+    "js",
+    "cordova",
+    "phonegap",
+    "tabs",
+    "htm",
+    "hybrid",
+    "navigation",
+    "tabbar",
+    "tab",
+    "bar"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "fontawesome#^4.7.0",
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
