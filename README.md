@@ -59,7 +59,8 @@ tabbar.render();
 tabbar.setActive(tab_home);
 ```
 
-
+##Preview
+![Tabs preview](https://i.imgur.com/kTU0fO2.png)
 
 ##Contribute
 Please read the wiki in order to contribute to the project.
