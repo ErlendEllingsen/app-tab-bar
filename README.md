@@ -22,6 +22,8 @@ Dependencies are automatically installed when using [bower](https://bower.io/).
 * Font Awesome
 
 ##Usage
+🌴 This is a quick usage guide. Read the [usage wiki page](https://github.com/ErlendEllingsen/app-tab-bar/wiki/Usage) for all methods, options and alternatives. 🌴
+
 **HTML**
 
 Add an empty div to your code with a specified id. Example:
