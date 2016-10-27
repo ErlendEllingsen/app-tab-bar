@@ -30,3 +30,8 @@ div.navigationBar div.navBtnCtn button:focus {
 div.navigationBar div.navBtnCtn button:first-child {
 	border-left: 0px;
 }
+
+div.navigationbar div.navBtnCtn.active button {
+	background-color: #2965A8;
+	color: #FFF;
+}
