@@ -1,0 +1,34 @@
+{
+  "name": "app-tab-bar",
+  "version": "1.2.0",
+  "description": "A tab-bar system in HTML/JS for hybrid apps / web apps.",
+  "main": "tabbar.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ErlendEllingsen/app-tab-bar.git"
+  },
+  "keywords": [
+    "tabbar",
+    "cordova",
+    "phonegap",
+    "hybrid",
+    "tab",
+    "bar",
+    "responsive",
+    "app",
+    "webapp",
+    "appdev"
+  ],
+  "author": "Erlend Ellingsen <erlend.ame@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ErlendEllingsen/app-tab-bar/issues"
+  },
+  "homepage": "https://github.com/ErlendEllingsen/app-tab-bar#readme"
+}

@@ -4,6 +4,9 @@
 A tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs in Bootstrap-style. Designed to work with Phonegap/Cordova. Created as a multi-platform-purpose system. 
 
 ##Installation 
+###NPM (Recommended)
+`npm install app-tab-bar`
+
 ###Bower
 `bower install app-tab-bar` 
 
@@ -12,7 +15,7 @@ A tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs i
 2. Make sure the *dependencies* are installed (see below).
 
 ###Dependencies
-*No dependencies anymore⚡️*
+*No dependencies anymore🔥*
 
 ##Usage
 🌴 This is a quick usage guide. Read the [usage wiki page](https://github.com/ErlendEllingsen/app-tab-bar/wiki/Usage) for all methods, options and alternatives. 🌴
