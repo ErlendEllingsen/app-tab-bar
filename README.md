@@ -55,8 +55,12 @@ tabbar.render();
 tabbar.setActive(tab_home);
 ```
 
-##Preview
+##Preview / Live Demo
 ![Tabs preview](https://i.imgur.com/kTU0fO2.png)
+
+###Live Demo
+* [Demo default style](https://erlendellingsen.github.io/app-tab-bar/live_demo/tabs.html)
+* [Demo custom style](https://erlendellingsen.github.io/app-tab-bar/live_demo/tabs_custom_style.html)
 
 ##Contribute
 Please read the wiki in order to contribute to the project.
