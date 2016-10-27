@@ -1,7 +1,19 @@
-![App-tab-bar](https://i.imgur.com/CLUH1Ws.png)
+<img src="https://i.imgur.com/CLUH1Ws.png" style="width: 430px;" alt="app-tab-bar logo">
 
-###Warning - WORK IN PROGRESS
-app-tab-bar is currently **work in progress** and is NOT stable to use. Watch (and/or star 😀🌟) the repository to be notified of changes!
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+<div style="display: inline-block;">
+<!-- Place this tag where you want the button to render. -->
+<a style="display: inline-block;" class="github-button" href="https://github.com/erlendellingsen/app-tab-bar" data-icon="octicon-star" data-style="mega" data-count-href="/erlendellingsen/app-tab-bar/stargazers" data-count-api="/repos/erlendellingsen/app-tab-bar#stargazers_count" data-count-aria-label="# stargazers on GitHub" aria-label="Star erlendellingsen/app-tab-bar on GitHub">Star</a>
+</div>
+
+<div style="display: inline-block; margin-left: 20px;">
+<!-- Place this tag where you want the button to render. -->
+<a style="display: inline-block;" class="github-button" href="https://github.com/erlendellingsen" data-style="mega" data-count-href="/erlendellingsen/followers" data-count-api="/users/erlendellingsen#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @erlendellingsen on GitHub">Follow @erlendellingsen</a>
+</div>
+
+
 
 #app-tab-bar
 A tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs in Bootstrap-style. Designed to work with Phonegap/Cordova. Created as a multi-platform-purpose system. 
@@ -60,10 +72,11 @@ tabbar.setActive(tab_home);
 ```
 
 ##Preview
-![Tabs preview](https://i.imgur.com/kTU0fO2.png)
+<img src="https://i.imgur.com/kTU0fO2.png" style="max-width: 400px;" alt="preview">
 
 ##Contribute
 Please read the wiki in order to contribute to the project.
+
 
 ##License 
 MIT-license. See *LICENSE*-file.
