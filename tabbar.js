@@ -7,7 +7,7 @@
  *
  * @author Erlend Ellingsen <erlend.ame@gmail.com>
  * @copyright MIT, Erlend Ellingsen
- * @version	1.0	26.10.2016
+ * @version	1.1	27.10.2016
  */
 
 var AppTabBar = {};
@@ -148,7 +148,7 @@ AppTabBar.Tabbar = function(nodeId, options) {
 		//Call selected callback..
 		tabObj.tab.events.selected();
 
-
+		return true;
 		//end selectTab
 	}
 
@@ -295,57 +295,5 @@ AppTabBar.Tab = function(id, name, icon, options, tabbar) {
 
 	}
 
+	//END Tab
 }
-
-
-$(document).ready(function() {
-
-	//Initialize the tabbar
-	var tabbar = new AppTabBar.Tabbar('tab_bar', {
-		button_height: 60
-	});
-
-	tabbar.init();
-
-	//Add tabs
-	var home = tabbar.addTab('Home', 'fa-home', {
-		events: {
-			selected: function(){}
-		}
-	});
-	
-	var pages = tabbar.addTab('Pages', 'fa-home');
-
-	//Render the tabbar.
-	tabbar.render();
-
-	tabbar.selectTab(home);
-
-});
-
-
-
-
-
-//
-// var tabs = {};
-//
-// tabs.activeTab = 'Timebestilling';
-// tabs.availableTabs = ['Timebestilling', 'Tilbud', 'Instillinger'];
-//
-// tabs.setTab = function(newTab) {
-//
-// 	//Unset old tab
-// 	$('#navigationBar').find("button[data-tab='" + tabs.activeTab + "']").attr('class', 'navBtn btn btn-default');
-// 	//Unset old section
-// 	$("section[data-page='" + tabs.activeTab + "']").css('display', 'none');
-//
-// 	//Set new tab
-// 	$('#navigationBar').find("button[data-tab='" + newTab + "']").attr('class', 'navBtn btn btn-primary');
-//
-// 	//Set new section
-// 	$("section[data-page='" + newTab + "']").css('display', 'block');
-//
-// 	//Set the tab active
-// 	tabs.activeTab = newTab;
-// }

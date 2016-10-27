@@ -31,6 +31,34 @@
         <div id="tab_bar">
         </div>
 
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                //Initialize the tabbar
+                var tabbar = new AppTabBar.Tabbar('tab_bar', {
+                    button_height: 60
+                });
+
+                tabbar.init();
+
+                //Add tabs
+                var home = tabbar.addTab('Home', 'fa-home', {
+                    events: {
+                        selected: function(){}
+                    }
+                });
+
+                var pages = tabbar.addTab('Pages', 'fa-home');
+
+                //Render the tabbar.
+                tabbar.render();
+
+                tabbar.selectTab(home);
+
+            });
+        </script>
+
     </body>
 
 </html>
