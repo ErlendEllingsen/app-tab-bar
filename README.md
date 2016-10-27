@@ -28,7 +28,7 @@ Dependencies are automatically installed when using [bower](https://bower.io/).
 
 Add an empty div to your code with a specified id. Example:
 
-```
+```html
 <div id="tab_bar"></div>
 ```
 
@@ -36,7 +36,7 @@ Add an empty div to your code with a specified id. Example:
 
 Add your own tabbar-code to your javascript. Initialize the tabbar object and select the HTML-object you added. Add tabs and then finally render.
 
-```
+```javascript
 //Initialize the tabbar
 var tabbar = new AppTabBar.Tabbar('tab_bar');
 tabbar.init();
