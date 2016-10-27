@@ -66,7 +66,11 @@
 
                 //Initialize the tabbar
                 var tabbar = new AppTabBar.Tabbar('tab_bar', {
-                    button_height: 60
+                    button_height: 60,
+                    tab_selected_style: {
+                        color: 'orange',
+                        background_color: 'black'
+                    }
                 });
 
                 tabbar.init();

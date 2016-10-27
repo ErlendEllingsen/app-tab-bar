@@ -25,11 +25,14 @@ AppTabBar.Tabbar = function(nodeId, options) {
 
 	this.options = options;
 
+	this.tabbar_spacer = null;
+
 	//Tabs
 	this.tabs = {
 		tabs_current_uuid: '',
 		tabs_objects: [],
 		tab_selected: null,
+		tab_prev_selected: null,
 		tab_selected_classes: '',
 		tab_unselected_classes: '',
 		active: null
@@ -38,7 +41,18 @@ AppTabBar.Tabbar = function(nodeId, options) {
 	//--- INIT & MAIN ---
 
 	this.init = function() {
-		self.obj = document.getElementById(self.obj_ID);
+
+		var tabbarObj = document.getElementById(self.obj_ID);
+
+		self.tabbar_spacer = document.createElement('div');
+		var div_tabbar = document.createElement('div');
+
+		tabbarObj.appendChild(self.tabbar_spacer);
+		tabbarObj.appendChild(div_tabbar);
+
+		self.obj = div_tabbar;
+
+
 	}
 
 	//--- CALCULATION METHODS ---
@@ -139,6 +153,7 @@ AppTabBar.Tabbar = function(nodeId, options) {
 		//Unset current tab
 		if (self.tabs.tab_selected !== null) {
 			self.tabs.tab_selected.obj.setAttribute('class', self.tabs.tab_unselected_classes);
+			self.tabs.tab_prev_selected = self.tabs.tab_selected;
 		}
 
 		//Set new tab
@@ -155,11 +170,13 @@ AppTabBar.Tabbar = function(nodeId, options) {
 			var style = self.options.tab_selected_style;
 
 			if ('color' in self.options.tab_selected_style) {
-				self.tabs.tab_selected.obj.style.color = style.color;
+				self.tabs.tab_selected.obj.children[0].style.color = style.color;
+				if (self.tabs.tab_prev_selected != null) self.tabs.tab_prev_selected.obj.children[0].style.color = '';
 			}
 
 			if ('background_color' in self.options.tab_selected_style) {
-				self.tabs.tab_selected.obj.style.backgroundColor = style.background_color;
+				self.tabs.tab_selected.obj.children[0].style.backgroundColor = style.background_color;
+				if (self.tabs.tab_prev_selected != null) self.tabs.tab_prev_selected.obj.children[0].style.backgroundColor = '';
 			}
 
 		}
@@ -210,6 +227,10 @@ AppTabBar.Tabbar = function(nodeId, options) {
 
 			tab.rendered = true;
 		}
+
+		//Create SPACER
+		self.tabbar_spacer.style.marginBottom = self.obj.children[0].scrollHeight;
+
 
 		//end render
 	}
