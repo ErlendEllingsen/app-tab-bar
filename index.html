@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">app-tab-bar</h1>
-      <h2 class="project-tagline">An tab-bar system in HTML/JS for hybrid apps / web apps. </h2>
+      <h2 class="project-tagline">A tab-bar system in HTML/JS for hybrid apps / web apps. </h2>
       <a href="https://github.com/ErlendEllingsen/app-tab-bar" class="btn">View on GitHub</a>
       <a href="https://github.com/ErlendEllingsen/app-tab-bar/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/ErlendEllingsen/app-tab-bar/tarball/master" class="btn">Download .tar.gz</a>
@@ -20,11 +20,6 @@
 
     <section class="main-content">
       <p><img src="https://i.imgur.com/CLUH1Ws.png" alt="App-tab-bar"></p>
-
-<h3>
-<a id="warning---work-in-progress" class="anchor" href="#warning---work-in-progress" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Warning - WORK IN PROGRESS</h3>
-
-<p>app-tab-bar is currently <strong>work in progress</strong> and is NOT stable/ready to use. Watch (and/or star <g-emoji alias="grinning" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f600.png" ios-version="6.0">😀</g-emoji><g-emoji alias="star2" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f31f.png" ios-version="6.0">🌟</g-emoji>) the repository to be notified of changes!</p>
 
 <h1>
 <a id="app-tab-bar" class="anchor" href="#app-tab-bar" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>app-tab-bar</h1>
@@ -37,7 +32,7 @@
 <h3>
 <a id="bower-recommended" class="anchor" href="#bower-recommended" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Bower (Recommended)</h3>
 
-<p>//TODO</p>
+<p><code>bower install app-tab-bar</code> </p>
 
 <h3>
 <a id="direct" class="anchor" href="#direct" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Direct</h3>
@@ -53,7 +48,7 @@
 <p>Dependencies are automatically installed when using <a href="https://bower.io/">bower</a>. </p>
 
 <ul>
-<li>Boostrap</li>
+<li>Bootstrap</li>
 <li>jQuery</li>
 <li>Font Awesome</li>
 </ul>
@@ -67,29 +62,40 @@
 
 <p>Add an empty div to your code with a specified id. Example:</p>
 
-<pre><code>&lt;div id="tab_bar"&gt;&lt;/div&gt;
-</code></pre>
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">div</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>tab_bar<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;</pre></div>
 
 <p><strong>Javascript</strong></p>
 
 <p>Add your own tabbar-code to your javascript. Initialize the tabbar object and select the HTML-object you added. Add tabs and then finally render.</p>
 
-<pre><code>//Initialize the tabbar
-var tabbar = new AppTabBar.Tabbar('tab_bar');
-tabbar.init();
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//Initialize the tabbar</span>
+<span class="pl-k">var</span> tabbar <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">AppTabBar.Tabbar</span>(<span class="pl-s"><span class="pl-pds">'</span>tab_bar<span class="pl-pds">'</span></span>);
+<span class="pl-smi">tabbar</span>.<span class="pl-en">init</span>();
 
-//Add tabs
-tabbar.addTab('Home', 'fa-home');
-tabbar.addTab('Pages', 'fa-home');
+<span class="pl-c">//Add tabs</span>
+<span class="pl-k">var</span> tab_home <span class="pl-k">=</span> <span class="pl-smi">tabbar</span>.<span class="pl-en">addTab</span>(<span class="pl-s"><span class="pl-pds">'</span>Home<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>fa-home<span class="pl-pds">'</span></span>, {
+    events<span class="pl-k">:</span> {
+        <span class="pl-en">selected</span><span class="pl-k">:</span> <span class="pl-k">function</span>(){
+            <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">'</span>Home selected!<span class="pl-pds">'</span></span>);
+        }
+    }
+});
 
-//Render the tabbar.
-tabbar.render();
-</code></pre>
+<span class="pl-k">var</span> tab_pages <span class="pl-k">=</span> <span class="pl-smi">tabbar</span>.<span class="pl-en">addTab</span>(<span class="pl-s"><span class="pl-pds">'</span>Pages<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>fa-home<span class="pl-pds">'</span></span>);
+
+<span class="pl-c">//Render the tabbar.</span>
+<span class="pl-smi">tabbar</span>.<span class="pl-en">render</span>();
+
+<span class="pl-c">//Set "home" as active.</span>
+<span class="pl-smi">tabbar</span>.<span class="pl-c1">setActive</span>(tab_home);</pre></div>
+
+<h2>
+<a id="preview" class="anchor" href="#preview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Preview</h2>
+
+<p><img src="https://i.imgur.com/kTU0fO2.png" alt="Tabs preview"></p>
 
 <h2>
 <a id="contribute" class="anchor" href="#contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribute</h2>
-
-<p>//TODO</p>
 
 <p>Please read the wiki in order to contribute to the project.</p>
 
