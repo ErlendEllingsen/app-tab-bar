@@ -8,7 +8,7 @@ A tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs i
 
 ##Installation 
 ###Bower (Recommended)
-//TODO
+`bower install app-tab-bar` 
 
 ###Direct
 1. Download `tabbar.js` and `tabbar.css` and reference them in your document.
