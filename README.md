@@ -4,7 +4,7 @@
 A tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs in Bootstrap-style. Designed to work with Phonegap/Cordova. Created as a multi-platform-purpose system. 
 
 ##Installation 
-###Bower (Recommended)
+###Bower
 `bower install app-tab-bar` 
 
 ###Direct
@@ -12,11 +12,7 @@ A tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs i
 2. Make sure the *dependencies* are installed (see below).
 
 ###Dependencies
-Dependencies are automatically installed when using [bower](https://bower.io/). 
-
-* Bootstrap
-* jQuery
-* Font Awesome
+*No dependencies anymore⚡️*
 
 ##Usage
 🌴 This is a quick usage guide. Read the [usage wiki page](https://github.com/ErlendEllingsen/app-tab-bar/wiki/Usage) for all methods, options and alternatives. 🌴
