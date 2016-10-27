@@ -38,7 +38,7 @@ AppTabBar.Tabbar = function(nodeId, options) {
 	//--- INIT & MAIN ---
 
 	this.init = function() {
-		self.obj = $('#' + self.obj_ID);
+		self.obj = document.getElementById(self.obj_ID);
 	}
 
 	//--- CALCULATION METHODS ---
@@ -114,7 +114,7 @@ AppTabBar.Tabbar = function(nodeId, options) {
 		//REMOVE ELEMENTS
 
 		//Remove DOM object
-		$(tabObj.tab.obj).remove();
+		tabObj.tab.obj.parentElement.removeChild(tabObj.tab.obj);
 
 		//Remove from array.
 		self.tabs.tabs_objects.splice(tabObj.tabIndex, 1);
@@ -138,16 +138,16 @@ AppTabBar.Tabbar = function(nodeId, options) {
 
 		//Unset current tab
 		if (self.tabs.tab_selected !== null) {
-			$(self.tabs.tab_selected.obj).attr('class', self.tabs.tab_unselected_classes);
+			self.tabs.tab_selected.obj.setAttribute('class', self.tabs.tab_unselected_classes);
 		}
 
 		//Set new tab
 		self.tabs.tab_selected = tabObj.tab;
 
 		//Hide tab
-		$(self.tabs.tab_selected.obj).hide();
+		self.tabs.tab_selected.obj.style.display = 'none';
 
-		$(self.tabs.tab_selected.obj).attr('class', self.tabs.tab_selected_classes);
+		self.tabs.tab_selected.obj.setAttribute('class', self.tabs.tab_selected_classes);
 
 		//ADJUST STYLES
 		if ('tab_selected_style' in self.options) {
@@ -155,17 +155,17 @@ AppTabBar.Tabbar = function(nodeId, options) {
 			var style = self.options.tab_selected_style;
 
 			if ('color' in self.options.tab_selected_style) {
-				$(self.tabs.tab_selected.obj).css('color', style.color);
+				self.tabs.tab_selected.obj.style.color = style.color;
 			}
 
 			if ('background_color' in self.options.tab_selected_style) {
-				$(self.tabs.tab_selected.obj).css('background-color', style.background_color);
+				self.tabs.tab_selected.obj.style.backgroundColor = style.background_color;
 			}
 
 		}
 
 		//Show tab
-		$(self.tabs.tab_selected.obj).show();
+		self.tabs.tab_selected.obj.style.display = 'block';
 
 		//Call selected callback..
 		tabObj.tab.events.selected();
@@ -184,28 +184,29 @@ AppTabBar.Tabbar = function(nodeId, options) {
 
 		//RENDER
 		//Render styles
-		self.tabs.tab_selected_classes = 'navBtnCtn active col-xs-' + cols + ' col-sm-' + cols + ' col-md-' + cols + ' col-lg-' + cols;
-		self.tabs.tab_unselected_classes = 'navBtnCtn col-xs-' + cols + ' col-sm-' + cols + ' col-md-' + cols + ' col-lg-' + cols;
+		self.tabs.tab_selected_classes = 'navBtnCtn active tb-col-' + cols;
+		self.tabs.tab_unselected_classes = 'navBtnCtn tb-col-' + cols;
 
 		//Empty div
-		$(self.obj).html('');
+		self.obj.innerHTML = '';
 
 		//Generate container
-		$(self.obj).html('' +
+		self.obj.innerHTML = '' +
 			'<div data-tab-bar-controller="container" class="navigationBarContainer container-fluid" style="display: block;">' +
 			'	<div data-tab-bar-controller="bar" class="navigationBar row">' +
 			'	</div>' +
-			'</div>'
-		);
+			'</div>';
 
 		//Load objects
-		var bar_obj = $(self.obj).find('div[data-tab-bar-controller="bar"]');
+
+		var bar_obj = self.obj.children[0].children[0];
 
 		//Add tabs
 		for (var i = 0; i < self.tabs.tabs_objects.length; i++) {
 			var tab = self.tabs.tabs_objects[i];
 			var tabCode = tab.renderCode();
-			$(bar_obj).append(tabCode);
+
+			bar_obj.appendChild(tabCode);
 
 			tab.rendered = true;
 		}
@@ -297,23 +298,27 @@ AppTabBar.Tab = function(id, name, icon, options, tabbar) {
 	this.renderCode = function() {
 
 
-		var btn = '' +
-			'<div class="' + self.tabbar.tabs.tab_unselected_classes + '">' +
-			'	<button data-tab="' + self.id + '" type="button" class="navBtn btn btn-default">' +
-			'		<i class="fa ' + self.icon + '" style="display: block;"></i> ' + self.name +
-			'	</button>' +
-			'</div>';
+		var tabCode = document.createElement('div');
+		tabCode.setAttribute('class', self.tabbar.tabs.tab_unselected_classes);
 
-		btn = $.parseHTML(btn);
+		var btnContent = '' +
+			'<button data-tab="' + self.id + '" type="button" class="navBtn btn btn-default">' +
+			'	<span style="display: block;">' + self.icon + '</span> ' +
+			'' + self.name +
+			'</button>';
+
+		tabCode.innerHTML = btnContent;
+
+		var button = tabCode.children[0];
 
 		//Apply eventual styles
-		if ('button_height' in self.tabbar.options) $(btn).find('button').css('height', self.tabbar.options.button_height);
+		if ('button_height' in self.tabbar.options) button.style.height = self.tabbar.options.button_height;
 
 		//Apply events
-		$(btn).find('button').on('click', self.events.click);
+		button.addEventListener("click", self.events.click);
 
-		self.obj = btn;
-		return btn;
+		self.obj = tabCode;
+		return tabCode;
 
 	}
 

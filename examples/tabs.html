@@ -4,12 +4,6 @@
         <title>app-tab-bar tabs example</title>
         <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi" />
 
-
-        <!--Dependencies-->
-        <script src="../bower_components/jquery/dist/jquery.js"></script>
-        <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" type="text/css">
-        <link rel="stylesheet" href="../bower_components/font-awesome/css/font-awesome.css" type="text/css">
-
         <!--app-tab-bar-->
         <script src="../tabbar.js"></script>
         <link rel="stylesheet" href="../tabbar.css">
@@ -33,7 +27,7 @@
 
 
         <script type="text/javascript">
-            $(document).ready(function() {
+            (function() {
 
                 //Initialize the tabbar
                 var tabbar = new AppTabBar.Tabbar('tab_bar', {
@@ -47,7 +41,7 @@
                 tabbar.init();
 
                 //Add tabs
-                var home = tabbar.addTab('Home', 'fa-home', {
+                var home = tabbar.addTab('Home', '<i class="fa fa-home"></i>', {
                     events: {
                         selected: function(){}
                     }
@@ -60,7 +54,7 @@
 
                 tabbar.selectTab(home);
 
-            });
+            })();
         </script>
 
     </body>
