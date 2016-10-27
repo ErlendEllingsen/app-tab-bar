@@ -1,15 +1,7 @@
-<img src="https://i.imgur.com/CLUH1Ws.png" style="width: 430px;" alt="app-tab-bar logo">
+![App-tab-bar](https://i.imgur.com/CLUH1Ws.png)
 
-
-<div style="display: inline-block;">
-<iframe src="https://ghbtns.com/github-btn.html?user=erlendellingsen&repo=app-tab-bar&type=star&count=true" frameborder="0" scrolling="0" width="140px" height="20px"></iframe>
-</div>
-
-<div style="display: inline-block;">
-<iframe src="https://ghbtns.com/github-btn.html?user=erlendellingsen&type=follow&count=true" frameborder="0" scrolling="0" width="190px" height="20px"></iframe>
-</div>
-
-
+###Warning - WORK IN PROGRESS
+app-tab-bar is currently **work in progress** and is NOT stable to use. Watch (and/or star 😀🌟) the repository to be notified of changes!
 
 #app-tab-bar
 A tab-bar system in HTML/JS for hybrid apps / web apps. Creates beautiful tabs in Bootstrap-style. Designed to work with Phonegap/Cordova. Created as a multi-platform-purpose system. 
@@ -68,11 +60,10 @@ tabbar.setActive(tab_home);
 ```
 
 ##Preview
-<img src="https://i.imgur.com/kTU0fO2.png" style="max-width: 400px;" alt="preview">
+![Tabs preview](https://i.imgur.com/kTU0fO2.png)
 
 ##Contribute
 Please read the wiki in order to contribute to the project.
-
 
 ##License 
 MIT-license. See *LICENSE*-file.
