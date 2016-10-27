@@ -7,7 +7,7 @@
  *
  * @author Erlend Ellingsen <erlend.ame@gmail.com>
  * @copyright MIT, Erlend Ellingsen
- * @version	1.1	27.10.2016
+ * @version	1.2	27.10.2016
  */
 
 var AppTabBar = {};
@@ -143,7 +143,29 @@ AppTabBar.Tabbar = function(nodeId, options) {
 
 		//Set new tab
 		self.tabs.tab_selected = tabObj.tab;
+
+		//Hide tab
+		$(self.tabs.tab_selected.obj).hide();
+
 		$(self.tabs.tab_selected.obj).attr('class', self.tabs.tab_selected_classes);
+
+		//ADJUST STYLES
+		if ('tab_selected_style' in self.options) {
+
+			var style = self.options.tab_selected_style;
+
+			if ('color' in self.options.tab_selected_style) {
+				$(self.tabs.tab_selected.obj).css('color', style.color);
+			}
+
+			if ('background_color' in self.options.tab_selected_style) {
+				$(self.tabs.tab_selected.obj).css('background-color', style.background_color);
+			}
+
+		}
+
+		//Show tab
+		$(self.tabs.tab_selected.obj).show();
 
 		//Call selected callback..
 		tabObj.tab.events.selected();
