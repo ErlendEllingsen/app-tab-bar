@@ -7,7 +7,7 @@
  *
  * @author Erlend Ellingsen <erlend.ame@gmail.com>
  * @copyright MIT, Erlend Ellingsen
- * @version	1.2	27.10.2016
+ * @version	1.3	28.10.2016
  */
 
 var AppTabBar = {};
@@ -265,7 +265,10 @@ AppTabBar.Tab = function(id, name, icon, options, tabbar) {
 
 	//Events
 	this.events = {};
-	this.events.click = function() {
+	this.events.click = function(e) {
+		e.stopPropagation();
+		e.preventDefault();
+
 		//Check for override-action
 		if (self.options.click.preventDefault == true) {
 			self.options.click.callback();
@@ -337,6 +340,7 @@ AppTabBar.Tab = function(id, name, icon, options, tabbar) {
 
 		//Apply events
 		button.addEventListener("click", self.events.click);
+		button.addEventListener("touchstart", self.events.click);
 
 		self.obj = tabCode;
 		return tabCode;
