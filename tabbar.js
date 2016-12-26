@@ -159,6 +159,9 @@ AppTabBar.Tabbar = function(nodeId, options) {
 		//Set new tab
 		self.tabs.tab_selected = tabObj.tab;
 
+		//If the same, don't hide (causes errors with styling)
+		if (self.tabs.tab_selected == self.tabs.tab_prev_selected) self.tabs.tab_prev_selected = null;
+
 		//Hide tab
 		self.tabs.tab_selected.obj.style.display = 'none';
 

@@ -1,6 +1,6 @@
 {
   "name": "app-tab-bar",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A tab-bar system in HTML/JS for hybrid apps / web apps.",
   "main": "tabbar.js",
   "directories": {
