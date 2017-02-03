@@ -7,7 +7,7 @@
  *
  * @author Erlend Ellingsen <erlend.ame@gmail.com>
  * @copyright MIT, Erlend Ellingsen
- * @version	1.3	28.10.2016
+ * @version	1.4	03.02.2017
  */
 
 var AppTabBar = {};
@@ -340,6 +340,7 @@ AppTabBar.Tab = function(id, name, icon, options, tabbar) {
 
 		//Apply eventual styles
 		if ('button_height' in self.tabbar.options) button.style.height = self.tabbar.options.button_height;
+		if ('font_size' in self.tabbar.options) button.style.fontSize = self.tabbar.options.font_size;
 
 		//Apply events
 		button.addEventListener("click", self.events.click);
